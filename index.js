@@ -11,16 +11,16 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-
 io.on("connection", (socket) => {
-    console.log("a new client connected", socket.id);
-    socket.on("msg_send", (data)=>{
-        console.log(data);
-        io.emit("msg_rcvd",data)
-    })
+    socket.on("msg_send", (data) => {
+        io.emit("msg_rcvd", { msg: data.msg, id: socket.id });
+    });
+    socket.on("disconnect", () => {
+        console.log("Client disconnected:", socket.id);
+    });
 });
 
 app.use("/", express.static(path.join(__dirname, "public"))); // Serve static files
 server.listen(3000, () => {
-  console.log("Server is started on port 3000");
+    console.log("Server is started on port 3000");
 });

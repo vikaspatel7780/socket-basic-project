@@ -5,6 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat app</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #newmsg {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #btn:hover {
+            background-color: #218838;
+        }
+
+        #msglist {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            width: 350px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        #msglist li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #msglist li:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
     <h1>Chat app using Sockets</h1>
